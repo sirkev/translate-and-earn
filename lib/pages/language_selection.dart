@@ -75,7 +75,7 @@ class Register extends StatelessWidget {
                 width: double.maxFinite,
                 // color: Colors.redAccent,
                 child: ListView.builder(
-                    itemCount: 60,
+                    itemCount: language.length,
                     itemBuilder: (BuildContext context, int index) {
                       return GestureDetector(
                         onTap: () {},
