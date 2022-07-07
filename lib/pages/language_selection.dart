@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
 class Register extends StatelessWidget {
-  const Register({Key? key}) : super(key: key);
+  Register({Key? key}) : super(key: key);
+
+  final List language = ['English','Swahili','French','Chinese','Korean',];
 
   @override
   Widget build(BuildContext context) {
@@ -82,8 +84,8 @@ class Register extends StatelessWidget {
                             padding: const EdgeInsets.symmetric(vertical: 20),
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: const [
-                                Text('English'),
+                              children:  [
+                                Text(language[index]),
                                 Icon(
                                   Icons.check_circle,
                                   color: Colors.red,
@@ -98,14 +100,17 @@ class Register extends StatelessWidget {
               height: 40,
             ),
             Container(
-              margin: const EdgeInsets.only(top: 20,left:20, right: 20,bottom: 10),
+              margin: const EdgeInsets.only(
+                  top: 20, left: 20, right: 20, bottom: 10),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
                   Container(
                     // height: 50,
-                    decoration: BoxDecoration(borderRadius: BorderRadius.circular(20),color: Colors.redAccent[200]),
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(20),
+                        color: Colors.redAccent[200]),
                     padding: const EdgeInsets.all(10),
                     child: Center(
                       child: const Text(
@@ -115,8 +120,10 @@ class Register extends StatelessWidget {
                     ),
                   ),
                   Container(
-                   // height: 50,
-                    decoration: BoxDecoration(borderRadius: BorderRadius.circular(20),color: Colors.redAccent[200]),
+                    // height: 50,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(20),
+                        color: Colors.redAccent[200]),
                     padding: const EdgeInsets.all(10),
                     child: Center(
                       child: const Text(
