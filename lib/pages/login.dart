@@ -1,3 +1,6 @@
+// ignore_for_file: avoid_unnecessary_containers
+
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:translate_and_earn/pages/language_selection.dart';
@@ -7,8 +10,10 @@ class Login extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print(
+    if (kDebugMode) {
+      print(
         "Current Screen Dimensions = ${MediaQuery.of(context).size.height} X ${MediaQuery.of(context).size.width}");
+    }
     var hidePass = true;
     var obscureText = true;
     return Scaffold(
@@ -85,22 +90,6 @@ class Login extends StatelessWidget {
                         ),
                       ),
                     ),
-                    // Positioned(
-                    //   top: 120,
-                    //   left: 20,
-                    //   child: Container(
-                    //     height: 60,
-                    //     width: 60,
-                    //     decoration: BoxDecoration(
-                    //       color: Colors.greenAccent,
-                    //       borderRadius: BorderRadius.only(
-                    //         bottomRight: Radius.circular(12.0),
-                    //         bottomLeft: Radius.circular(12.0),
-                    //         topRight: Radius.circular(12.0),
-                    //       ),
-                    //     ),
-                    //   ),
-                    // ),
                   ],
                 ),
               ),
@@ -162,7 +151,7 @@ class Login extends StatelessWidget {
                         hidePass = false;
                         obscureText = false;
                       },
-                      child: Icon(Icons.lock)),
+                      child: const Icon(Icons.lock)),
                   suffixIcon: Container(
                     child: Icon(hidePass == true
                         ? Icons.remove_red_eye_sharp
@@ -216,7 +205,7 @@ class Login extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text("Don't have an account? "),
+                const Text("Don't have an account? "),
                 GestureDetector(
                   onTap: () {
                     Get.to(() => Register());

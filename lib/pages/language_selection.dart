@@ -1,14 +1,28 @@
+// ignore_for_file: sized_box_for_whitespace
+
 import 'package:flutter/material.dart';
+import '../utils/languages.dart';
+import '../widgets/language_tile.dart';
 
-class Register extends StatelessWidget {
-  Register({Key? key}) : super(key: key);
+class Register extends StatefulWidget {
+  const Register({Key? key}) : super(key: key);
 
-  final List language = ['English','Swahili','French','Chinese','Korean',];
+  @override
+  State<Register> createState() => _RegisterState();
+}
+
+class _RegisterState extends State<Register> {
+  final List<Language> language = [
+    Language('English', true),
+    Language('Swahili', false),
+    Language('French', false),
+    Language('Chinese', true),
+    Language('Korean', true),
+    Language('Arabic', false),
+  ];
 
   @override
   Widget build(BuildContext context) {
-    bool tapped = false;
-
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.symmetric(vertical: 10.0),
@@ -77,21 +91,20 @@ class Register extends StatelessWidget {
                 child: ListView.builder(
                     itemCount: language.length,
                     itemBuilder: (BuildContext context, int index) {
-                      return GestureDetector(
-                        onTap: () {},
-                        child: Container(
-                            margin: const EdgeInsets.symmetric(horizontal: 20),
-                            padding: const EdgeInsets.symmetric(vertical: 20),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children:  [
-                                Text(language[index]),
-                                Icon(
-                                  Icons.check_circle,
-                                  color: Colors.red,
-                                )
-                              ],
-                            )),
+                      return Column(
+                        children: [
+                          Container(
+                            margin: const EdgeInsets.symmetric(vertical: 10),
+                            child: LanguageTile(language[index].language,
+                                language[index].isSelected, index),
+                          ),
+                          Divider(
+                            height: 5,
+                            color: Colors.grey[300],
+                            indent: 40,
+                            endIndent: 40,
+                          ),
+                        ],
                       );
                     }),
               ),
@@ -112,8 +125,8 @@ class Register extends StatelessWidget {
                         borderRadius: BorderRadius.circular(20),
                         color: Colors.redAccent[200]),
                     padding: const EdgeInsets.all(10),
-                    child: Center(
-                      child: const Text(
+                    child: const Center(
+                      child: Text(
                         'back',
                         style: TextStyle(color: Colors.white),
                       ),
@@ -125,8 +138,8 @@ class Register extends StatelessWidget {
                         borderRadius: BorderRadius.circular(20),
                         color: Colors.redAccent[200]),
                     padding: const EdgeInsets.all(10),
-                    child: Center(
-                      child: const Text(
+                    child: const Center(
+                      child: Text(
                         'next',
                         style: TextStyle(color: Colors.white),
                       ),

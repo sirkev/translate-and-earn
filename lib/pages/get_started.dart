@@ -7,7 +7,7 @@ class GetStarted extends StatelessWidget {
   const GetStarted({Key? key}) : super(key: key);
   
   Future nextPage() async{
-    await Future.delayed(Duration(seconds: 2),);
+    await Future.delayed(const Duration(seconds: 2),);
     return Register();
   }
 
@@ -184,9 +184,9 @@ class GetStarted extends StatelessWidget {
                     FutureBuilder(
                         future: nextPage(),
                         builder: (context, snapshot) {
-                          return snapshot.connectionState == ConnectionState.waiting? CircularProgressIndicator(color: Colors.redAccent,):Login();
+                          return snapshot.connectionState == ConnectionState.waiting? const CircularProgressIndicator(color: Colors.redAccent,):const Login();
                         });
-                    Get.to(()=>Login());},
+                    Get.to(()=>const Login());},
                   child: Container(
                     padding: const EdgeInsets.all(14),
                     // height: 50,
