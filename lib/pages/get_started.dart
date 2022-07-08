@@ -1,9 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'language_selection.dart';
 import 'login.dart';
 
 class GetStarted extends StatelessWidget {
   const GetStarted({Key? key}) : super(key: key);
+  
+  Future nextPage() async{
+    await Future.delayed(Duration(seconds: 2),);
+    return Register();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -174,9 +180,13 @@ class GetStarted extends StatelessWidget {
                   Get.to(() => const Login());
                 },
                 child: GestureDetector(
-                  onTap: () {
-                  Get.to(() => const Login(),transition: Transition.leftToRight,);
-                  },
+                  onTap: (){
+                    FutureBuilder(
+                        future: nextPage(),
+                        builder: (context, snapshot) {
+                          return snapshot.connectionState == ConnectionState.waiting? CircularProgressIndicator(color: Colors.redAccent,):Login();
+                        });
+                    Get.to(()=>Login());},
                   child: Container(
                     padding: const EdgeInsets.all(14),
                     // height: 50,
