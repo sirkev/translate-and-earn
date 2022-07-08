@@ -189,7 +189,7 @@ class Login extends StatelessWidget {
             ),
             GestureDetector(
               onTap: () {
-                Get.to(() => const Register());
+                Get.to(() => Register());
               },
               child: Container(
                 margin: const EdgeInsets.symmetric(horizontal: 20),
@@ -219,7 +219,7 @@ class Login extends StatelessWidget {
                 Text("Don't have an account? "),
                 GestureDetector(
                   onTap: () {
-                    Get.to(() => const Register());
+                    Get.to(() => Register());
                   },
                   child: const Text(
                     "Register",
