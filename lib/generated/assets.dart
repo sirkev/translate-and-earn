@@ -14,6 +14,7 @@ class Assets {
   static const String utilsDimensions = 'lib/utils/dimensions.dart';
   static const String utilsLanguages = 'lib/utils/languages.dart';
   static const String widgetsBigText = 'lib/widgets/bigText.dart';
+  static const String widgetsLanguageTile = 'lib/widgets/language_tile.dart';
   static const String widgetsSmallText = 'lib/widgets/smallText.dart';
   static const String widgetsText = 'lib/widgets/text.dart';
 

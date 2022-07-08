@@ -1,6 +1,4 @@
-class Language {
-  late String language;
-  late bool isSelected;
+class Language{
 
-  Language(this.language, this.isSelected);
+
 }

@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 import '../utils/languages.dart';
-import '../widgets/language_tile.dart';
+
 
 class Register extends StatefulWidget {
   const Register({Key? key}) : super(key: key);
@@ -12,7 +12,8 @@ class Register extends StatefulWidget {
 }
 
 class _RegisterState extends State<Register> {
-  final List<Language> language = [
+
+  final List<Language> languageList = [
     Language('English', true),
     Language('Swahili', false),
     Language('French', false),
