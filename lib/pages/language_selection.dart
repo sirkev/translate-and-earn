@@ -1,10 +1,8 @@
 // ignore_for_file: sized_box_for_whitespace
 
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import '../utils/languages.dart';
-import 'get_started.dart';
+import '../widgets/language_tile.dart';
 
 class Register extends StatefulWidget {
   const Register({Key? key}) : super(key: key);
@@ -14,7 +12,7 @@ class Register extends StatefulWidget {
 }
 
 class _RegisterState extends State<Register> {
-  final List<Language> languageList = [
+  final List<Language> language = [
     Language('English', true),
     Language('Swahili', false),
     Language('French', false),
@@ -22,8 +20,6 @@ class _RegisterState extends State<Register> {
     Language('Korean', true),
     Language('Arabic', false),
   ];
-
-  final List<Language> selectedLanguage = [];
 
   @override
   Widget build(BuildContext context) {
@@ -93,14 +89,14 @@ class _RegisterState extends State<Register> {
                 width: double.maxFinite,
                 // color: Colors.redAccent,
                 child: ListView.builder(
-                    itemCount: languageList.length,
+                    itemCount: language.length,
                     itemBuilder: (BuildContext context, int index) {
                       return Column(
                         children: [
                           Container(
                             margin: const EdgeInsets.symmetric(vertical: 10),
-                            child: languageTile(languageList[index].language,
-                                languageList[index].isSelected, index),
+                            child: LanguageTile(language[index].language,
+                                language[index].isSelected, index),
                           ),
                           Divider(
                             height: 5,
@@ -123,39 +119,29 @@ class _RegisterState extends State<Register> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
-                  GestureDetector(
-                    onTap: (){
-                      Get.back();
-                    },
-                    child: Container(
-                      // height: 50,
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(20),
-                          color: Colors.redAccent[200]),
-                      padding: const EdgeInsets.all(10),
-                      child: const Center(
-                        child: Text(
-                          'back',
-                          style: TextStyle(color: Colors.white),
-                        ),
+                  Container(
+                    // height: 50,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(20),
+                        color: Colors.redAccent[200]),
+                    padding: const EdgeInsets.all(10),
+                    child: const Center(
+                      child: Text(
+                        'back',
+                        style: TextStyle(color: Colors.white),
                       ),
                     ),
                   ),
-                  GestureDetector(
-                    onTap: (){
-                      Get.to(GetStarted());
-                    },
-                    child: Container(
-                      // height: 50,
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(20),
-                          color: Colors.redAccent[200]),
-                      padding: const EdgeInsets.all(10),
-                      child: const Center(
-                        child: Text(
-                          'next',
-                          style: TextStyle(color: Colors.white),
-                        ),
+                  Container(
+                    // height: 50,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(20),
+                        color: Colors.redAccent[200]),
+                    padding: const EdgeInsets.all(10),
+                    child: const Center(
+                      child: Text(
+                        'next',
+                        style: TextStyle(color: Colors.white),
                       ),
                     ),
                   ),
@@ -165,32 +151,6 @@ class _RegisterState extends State<Register> {
           ],
         ),
       ),
-    );
-  }
-
-  Widget languageTile(String language, bool isSelected, int index) {
-    return ListTile(
-      title: Text(language),
-      onTap: () {
-        setState(() {
-          languageList[index].isSelected=!languageList[index].isSelected;
-          if (languageList[index].isSelected == true) {
-            selectedLanguage.add(Language(language, true));
-          } else if (languageList[index].isSelected == false) {
-            selectedLanguage.removeWhere(
-                (element) => element.language == languageList[index].language);
-          }
-        });
-      },
-      trailing: isSelected
-          ? const Icon(
-              Icons.check_circle,
-              color: Colors.red,
-            )
-          : const Icon(
-              Icons.check_circle,
-              color: Colors.grey,
-            ),
     );
   }
 }
