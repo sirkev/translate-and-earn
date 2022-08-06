@@ -1,15 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'language_selection.dart';
 import 'login.dart';
 
 class GetStarted extends StatelessWidget {
   const GetStarted({Key? key}) : super(key: key);
-  
-  Future nextPage() async{
-    await Future.delayed(Duration(seconds: 2),);
-    return Register();
-  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -142,7 +137,7 @@ class GetStarted extends StatelessWidget {
                   ),
                 ),
               ),
-              //'>>>>>>>>>>>>>>>>>>>>>>>>><<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<,,
+
               const SizedBox(
                 height: 100,
               ),
@@ -164,7 +159,7 @@ class GetStarted extends StatelessWidget {
                 ),
               ),
               const Text(
-                "just use translate",
+                "just use translate ",
                 style: TextStyle(
                   color: Colors.grey,
                   fontSize: 14,
@@ -179,43 +174,42 @@ class GetStarted extends StatelessWidget {
                 onTap: () {
                   Get.to(() => const Login());
                 },
-                child: GestureDetector(
-                  onTap: (){
-                    FutureBuilder(
-                        future: nextPage(),
-                        builder: (context, snapshot) {
-                          return snapshot.connectionState == ConnectionState.waiting? CircularProgressIndicator(color: Colors.redAccent,):Login();
-                        });
-                    Get.to(()=>Login());},
-                  child: Container(
-                    padding: const EdgeInsets.all(14),
-                    // height: 50,
-                    // width: 70,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(16.0),
-                      color: Colors.red,
-                    ),
-                    child: const Text(
-                      "GET STARTED",
-                      style: TextStyle(color: Colors.white),
-                    ),
+                child: Container(
+                  key: const ValueKey('redButton'),
+                  padding: const EdgeInsets.all(14),
+                  // height: 50,
+                  // width: 70,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(16.0),
+                    color: Colors.red,
+                  ),
+                  child: const Text(
+                    "GET STARTED",
+
+                    style: TextStyle(color: Colors.white),
                   ),
                 ),
               ),
               const SizedBox(
                 height: 30,
               ),
-              Container(
-                margin: const EdgeInsets.only(bottom: 10),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: const [
-                    Text("Already have an account? "),
-                    Text(
-                      "Login",
-                      style: TextStyle(color: Colors.red),
-                    )
-                  ],
+              GestureDetector(
+                onTap: ((){
+                  Get.to(Login());
+                }),
+                child: Container(
+                  key: ValueKey('red-login'),
+                  margin: const EdgeInsets.only(bottom: 10),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: const [
+                      Text("Already have an account? "),
+                      Text(
+                        "Login",
+                        style: TextStyle(color: Colors.red),
+                      )
+                    ],
+                  ),
                 ),
               )
             ],

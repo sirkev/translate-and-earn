@@ -9,8 +9,5 @@ class Assets {
   static const String pagesGetStarted = 'lib/pages/get_started.dart';
   static const String pagesLanguageSelection = 'lib/pages/language_selection.dart';
   static const String pagesLogin = 'lib/pages/login.dart';
-  static const String utilsDimensions = 'lib/utils/dimensions.dart';
-  static const String utilsLanguages = 'lib/utils/languages.dart';
-  static const String widgetsText = 'lib/widgets/text.dart';
 
 }

@@ -135,6 +135,7 @@ class Login extends StatelessWidget {
                 color: Colors.grey[200],
               ),
               child: const TextField(
+                key: ValueKey('username'),
                 decoration: InputDecoration(
                   hintText: 'Username/Email/Phone',
                   icon: Icon(Icons.account_circle),
@@ -154,6 +155,7 @@ class Login extends StatelessWidget {
                 color: Colors.grey[200],
               ),
               child: TextField(
+                key: ValueKey('password'),
                 obscureText: obscureText,
                 decoration: InputDecoration(
                   hintText: 'Password',
@@ -178,7 +180,7 @@ class Login extends StatelessWidget {
                   margin: const EdgeInsets.only(top: 10, right: 20),
                   child: const Text(
                     'Forgot password?',
-                    style: TextStyle(color: Colors.pinkAccent),
+                    style: TextStyle(color: Colors.redAccent),
                   ),
                 ),
                 //login button
@@ -192,6 +194,7 @@ class Login extends StatelessWidget {
                 Get.to(() => Register());
               },
               child: Container(
+                key: ValueKey('login-button'),
                 margin: const EdgeInsets.symmetric(horizontal: 20),
                 width: double.maxFinite,
                 padding: const EdgeInsets.all(15),
@@ -201,6 +204,7 @@ class Login extends StatelessWidget {
                 ),
                 child: const Center(
                   child: Text(
+                    key: ValueKey('login-text'),
                     'LOGIN',
                     style: TextStyle(
                         color: Colors.white,

@@ -2,8 +2,6 @@
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
-import '../utils/languages.dart';
 import 'get_started.dart';
 
 class Register extends StatefulWidget {
@@ -13,12 +11,19 @@ class Register extends StatefulWidget {
   State<Register> createState() => _RegisterState();
 }
 
+class Language {
+  late String language;
+  late bool isSelected;
+
+  Language(this.language, this.isSelected);
+}
+
 class _RegisterState extends State<Register> {
   final List<Language> languageList = [
-    Language('English', true),
+    Language('English', false),
     Language('Swahili', false),
     Language('French', false),
-    Language('Chinese', true),
+    Language('Chinese', false),
     Language('Korean', true),
     Language('Arabic', false),
   ];
@@ -124,7 +129,7 @@ class _RegisterState extends State<Register> {
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
                   GestureDetector(
-                    onTap: (){
+                    onTap: () {
                       Get.back();
                     },
                     child: Container(
@@ -142,7 +147,7 @@ class _RegisterState extends State<Register> {
                     ),
                   ),
                   GestureDetector(
-                    onTap: (){
+                    onTap: () {
                       Get.to(GetStarted());
                     },
                     child: Container(
@@ -173,7 +178,7 @@ class _RegisterState extends State<Register> {
       title: Text(language),
       onTap: () {
         setState(() {
-          languageList[index].isSelected=!languageList[index].isSelected;
+          languageList[index].isSelected = !languageList[index].isSelected;
           if (languageList[index].isSelected == true) {
             selectedLanguage.add(Language(language, true));
           } else if (languageList[index].isSelected == false) {

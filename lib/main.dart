@@ -1,7 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:translate_and_earn/pages/get_started.dart';
-import 'package:translate_and_earn/pages/login.dart';
 import 'package:get/get.dart';
+
+class Dimensions {
+  static double _screenHeight= Get.context!.height;
+  static double _screenWidth= Get.context!.width;
+  
+}
+
+
 
 void main() {
   runApp(const MyApp());
@@ -15,12 +22,13 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context){
 
     return GetMaterialApp(
+      key: const ValueKey('get-material-app'),
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
+      title: 'Translate & Earn',
       theme: ThemeData(
-        primarySwatch: Colors.pink,
+        primarySwatch: Colors.red,
       ),
-      home: const GetStarted(),
+      home: const GetStarted(key: ValueKey("get-started"),),
     );
   }
 }
